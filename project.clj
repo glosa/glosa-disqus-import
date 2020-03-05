@@ -6,6 +6,7 @@
   :dependencies [
                  [org.clojure/clojure "1.10.0"]
                  [xmltojson "0.1.1"]
+                 [clj-time "0.15.2"]
                  ]
   :main ^:skip-aot glosa-disqus-import.core
   :target-path "target/%s"

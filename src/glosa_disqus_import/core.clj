@@ -2,8 +2,9 @@
   (:require
    [clojure.xml :as xml]
    [xmltojson.xmltojson :as xml-to-json]
+   [clojure.walk :as walk]
    [clojure.java.io :as io]
-   [clojure.set :as set]
+   [clj-time.coerce :as c]
    )
   (:gen-class))
 
@@ -25,17 +26,15 @@
   (let [all-posts         (doall (-> lists :disqus :post))
         filter-posts      (filter (fn [post] (every? true? [(= (-> post :isSpam) "false") (= (-> post :isDeleted) "false")])) all-posts)
         remove-keys-posts (->> filter-posts
-                               (map (fn [post] (dissoc post :isSpam)))
+                               (map (fn [post] (dissoc post :isSpam))) ;; Remove by key
                                (map (fn [post] (dissoc post :isDeleted)))
                                (map (fn [post] (dissoc post :id)))
-                               (map (fn [post] (update-in post [:author] dissoc :isAnonymous)))
+                               (map (fn [post] (update-in post [:author] dissoc :isAnonymous))) ;; Remove by Key two level
                                )
-        rename-keys-posts (->> remove-keys-posts
-                               (map (fn [post] (set/rename-keys post {(keyword "@dsq:id") :id})))
-                               (map (fn [post] (set/rename-keys post {(keyword "@dsq:id") :id})))
-                               )
+        rename-keys-posts (walk/postwalk-replace {(keyword "@dsq:id") :id} remove-keys-posts) ;; Rename all keys @dsp:id to :id
+        update-dates      (map (fn [post] (assoc post :createdAt (/ (c/to-long (-> post :createdAt)) 1000))) rename-keys-posts) ;; Datos UTC to Unixtime
         ]
-    (doall rename-keys-posts)
+    (doall update-dates)
     )
   )
 
