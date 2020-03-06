@@ -5,8 +5,12 @@ profiles.clj
 pom.xml
 pom.xml.asc
 *.jar
+dist/uberjar/classes/*
+!dist/uberjar/*.jar
 *.class
 /.lein-*
 /.nrepl-port
 .hgignore
 .hg/
+
+dist/uberjar/classes/META-INF/maven/glosa-disqus-import/glosa-disqus-import/pom.properties
