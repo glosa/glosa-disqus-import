@@ -23,6 +23,8 @@ jobs:
       run: lein uberjar
     - name: Upload
       run: |
+        git config user.email "action@github.com"
+        git config user.name "GitHub Action"
         git add dist
         git commit -m 'Update dist'
         git push origin master
