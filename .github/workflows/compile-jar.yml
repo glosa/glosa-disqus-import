@@ -16,7 +16,9 @@ jobs:
     - name: Install dependencies
       run: lein deps
     - name: Remove olds jar
-      run: git rm -r -f dist/
+      run: |
+        mkdir dist
+        rm -r dist
     - name: Complile jar
       run: lein uberjar
     - name: Upload
