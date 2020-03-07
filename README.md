@@ -1,32 +1,26 @@
 # glosa-disqus-import
 
-FIXME: description
-
-## Installation
-
-Download from http://example.com/FIXME.
+Transforms the export of comments from Disqus (XML format) to a simple JSON.
 
 ## Usage
 
-FIXME: explanation
+1) Download `dist/glosa-disqus-import-x.x.x-standlone.jar`.
 
-    $ java -jar glosa-disqus-import-0.1.0-standalone.jar [args]
+2) Decompress Disqus export.
 
-## Options
+3) Runs.
 
-FIXME: listing of options this app accepts.
+``` bash
+java -jar glosa-disqus-import-x.x.x-standlone.jar [file]
+```
 
-## Examples
+Example
 
-...
+``` bash
+java -jar glosa-disqus-import-x.x.x-standlone.jar myblog-2020-03-04T18%3A36%3A47.800594-all.xml
+```
 
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+In the same directory you will create the JSON.
 
 ## License
 
