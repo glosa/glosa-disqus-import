@@ -1,6 +1,27 @@
 # glosa-disqus-import
 
-Transforms the export of comments from Disqus (XML format) to a simple JSON.
+Export comments from Disqus (XML format) to a simple JSON.
+
+``` json
+[
+  {
+    "id":"2166957614",
+    "parent": "29293782",
+    "createdAt":1352672642,
+    "author":"Quijote",
+    "thread":"https://programadorwebvalencia.com/clojure-que-es-y-para-que-sirve/",
+    "message":"<p>Curioso sí que parece...</p>"
+  },{
+    "id":"2166957615",
+    ...
+```
+
+Superpowers:
+
+- Transform dates to unix time.
+- It unifies the children and the comments.
+- Keep the reference to the parents.
+- It removes irrelevant data.
 
 ## Usage
 
