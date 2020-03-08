@@ -45,8 +45,10 @@
         update-author     (map (fn [post] (assoc post :author (-> post :author :name))) update-dates)                           ;; Update author
         add-thread        (map (fn [post] (assoc post :thread (get-single-thread lists (-> post :thread :id)))) update-author)  ;; Add thread
         update-thread-id  (map (fn [post] (assoc post :thread (-> post :thread :link))) add-thread)                             ;; Update id thread to :url
+        parse-id          (map (fn [post] (assoc post :id (read-string (post :id)))) update-thread-id)
+        parse-parent      (map (fn [post] (if (contains? post :parent) (assoc post :parent (read-string (-> post :parent :id))) post)) parse-id)
         ]
-    (doall update-thread-id)))
+    (doall parse-parent)))
 
 (defn -main
   "Run"
