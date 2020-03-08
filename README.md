@@ -5,14 +5,15 @@ Export comments from Disqus (XML format) to a simple JSON.
 ``` json
 [
   {
-    "id":"2166957614",
-    "parent": "29293782",
-    "createdAt":1352672642,
-    "author":"Quijote",
-    "thread":"https://programadorwebvalencia.com/clojure-que-es-y-para-que-sirve/",
-    "message":"<p>Curioso sí que parece...</p>"
+    "id": 2166957614,
+    "parent": 29293782,
+    "createdAt": 1352672642,
+    "author": "Quijote",
+    "thread": "https://programadorwebvalencia.com/clojure-que-es-y-para-que-sirve/",
+    "message": "<p>Curioso sí que parece...</p>"
   },{
-    "id":"2166957615",
+    "id": 2166957615,
+    "parent": 51293771,
     ...
 ```
 
