@@ -24,6 +24,20 @@ Superpowers:
 - Keep the reference to the parents.
 - It removes irrelevant data.
 
+## Prerequisites: export the comment XML from Disqus
+
+1) Enter the Disqus Administrative panel.
+
+![step 1](media/1.jpg)
+
+2) Enter the Disqus Administrative panel.
+
+![step 2](media/2.jpg)
+
+3) Enter the Disqus Administrative panel.
+
+![step 3](media/3.jpg)
+
 ## Usage
 
 1) Download `dist/glosa-disqus-import-x.x.x-standlone.jar`.
