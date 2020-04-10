@@ -30,13 +30,15 @@ Superpowers:
 
 ![step 1](media/1.jpg)
 
-2) Enter the Disqus Administrative panel.
+2) Enter to Community.
 
 ![step 2](media/2.jpg)
 
-3) Enter the Disqus Administrative panel.
+3) Click in Export.
 
 ![step 3](media/3.jpg)
+
+You will receive an email with all the compressed comments.
 
 ## Usage
 
