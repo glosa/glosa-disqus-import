@@ -46,13 +46,13 @@
         add-thread        (map (fn [post] (assoc post :thread (get-single-thread lists (-> post :thread :id)))) update-author)  ;; Add thread
         update-thread-id  (map (fn [post] (assoc post :thread (-> post :thread :link))) add-thread)                             ;; Update id thread to :url
         parse-id          (map (fn [post] (assoc post :id (read-string (post :id)))) update-thread-id)
-        parse-parent      (map (fn [post] (if (contains? post :parent) (assoc post :parent (read-string (-> post :parent :id))) post)) parse-id)
+        parse-parent      (map (fn [post] (assoc post :parent (if (contains? post :parent) (read-string (-> post :parent :id)) ""))) parse-id) ;; Add parent
         ]
     (doall parse-parent)))
 
 (defn -main
-  "Run"
-  [file]
-  (let [lists (parse-xml-file file)
-        posts (get-posts lists)]
-    (generate-stream posts (clojure.java.io/writer (str file ".json")))))
+"Run"
+[file]
+(let [lists (parse-xml-file file)
+      posts (get-posts lists)]
+  (generate-stream posts (clojure.java.io/writer (str file ".json")))))
