@@ -10,8 +10,3 @@ pom.xml.asc
 /.nrepl-port
 .hgignore
 .hg/
-
-# Dist: only jar
-dist/uberjar/stale/
-dist/uberjar/classes/*
-!dist/uberjar/*.jar
