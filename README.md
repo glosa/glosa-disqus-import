@@ -1,5 +1,7 @@
 # Glosa Disqus import
 
+![Glosa Disqus import logo](media/logo.png)
+
 ## Export comments from Disqus (XML format) to a simple JSON.
 
 ``` json
